@@ -35,7 +35,7 @@ def main():
     parser = argparse.ArgumentParser(description="CLI for image generation prompt using OpenAI's DALL-E model.")
     parser.add_argument('-k', '--api-key', type=str, default=defaults["api_key"],
                         help='OpenAI API key. Can also be set with OPENAI_API_KEY environment variable.')
-    parser.add_argument('-p', '--prompt', type=str, required=True, help='Prompt for image generation.')
+    parser.add_argument('-p', '--prompt', type=str, help='Prompt for image generation.')
     parser.add_argument('-m', '--model', type=str, default=defaults["model"],
                         help=f'Model to use for image generation. Default is "{defaults["model"]}".')
     parser.add_argument('-s', '--size', type=str, default=defaults["size"],
