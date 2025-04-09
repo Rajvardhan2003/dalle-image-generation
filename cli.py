@@ -1,7 +1,12 @@
+try:
+    import openai
+except ImportError:
+    import subprocess
+    import sys
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "openai"])
+    import openai
 import os
-import sys
 import argparse
-import openai
 
 defaults = {
     "api_key": os.getenv('OPENAI_API_KEY'),
