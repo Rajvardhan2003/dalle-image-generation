@@ -20,6 +20,14 @@ def validate_and_parse_args(parser):
 
     if not args.api_key:
         parser.error('The --api-key argument is required if OPENAI_API_KEY is not set.')
+        if not args.prompt:
+    # Try reading from stdin
+            if not sys.stdin.isatty():
+                args.prompt = sys.stdin.read().strip()
+
+    if not args.prompt:
+    # Try from environment variable as last resort
+        args.prompt = os.getenv("PROMPT")
     if not args.prompt:
         parser.error('The --prompt argument is required.')
     if not args.number.isdigit():
